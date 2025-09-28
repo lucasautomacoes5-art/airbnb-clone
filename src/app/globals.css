@@ -1,0 +1,195 @@
+/* Updated: 2025-09-28T03:50:47.076Z */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #222222;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #222222;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #222222;
+
+  --color-primary: #FF385C;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #F7F7F7;
+  --color-secondary-foreground: #222222;
+
+  --color-muted: #F7F7F7;
+  --color-muted-foreground: #717171;
+
+  --color-accent: #F7F7F7;
+  --color-accent-foreground: #222222;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #DDDDDD;
+  --color-input: #DDDDDD;
+  --color-ring: #FF385C;
+
+  --color-chart-1: #e67e22;
+  --color-chart-2: #2d8659;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #f1c40f;
+  --color-chart-5: #e74c3c;
+
+  --color-text-primary: #222222;
+  --color-text-secondary: #717171;
+  --color-text-tertiary: #B0B0B0;
+  --color-success: #008A05;
+  --color-overlay: rgba(0,0,0,0.3);
+
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e5e5;
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: 0.75rem; /* Default radius, adjust as needed */
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--color-text-secondary);
+  }
+
+  .text-sm {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .text-xs {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
